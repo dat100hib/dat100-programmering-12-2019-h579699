@@ -40,7 +40,7 @@ public class Tekst extends Innlegg {
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
 			
-		return super.toHTML() + "<p>" + this.tekst + "</p>\n";
+		return super.toHTML() + "\t\t<p>" + this.tekst + "</p>\n";
 				
 	}
 }

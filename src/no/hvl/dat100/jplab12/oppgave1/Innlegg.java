@@ -80,7 +80,7 @@ public abstract class Innlegg {
 	
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
-		String str = "<h2>" + this.bruker + "@" + this.dato + "[" + this.likes + "]" + "</h2>\n";
+		String str = "\t\t<h2>" + this.bruker + "@" + this.dato + "[" + this.likes + "]" + "</h2>\n";
 		return str;
 				
 	}
