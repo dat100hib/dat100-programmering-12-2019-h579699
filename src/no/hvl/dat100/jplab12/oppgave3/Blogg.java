@@ -24,6 +24,10 @@ public class Blogg {
 		return nesteLedige;
 	}
 	
+	public void setAntall(int antall) {
+		this.nesteLedige = antall;
+	}
+	
 	public Innlegg[] getSamling() {
 		return this.innleggtabell;
 
@@ -61,9 +65,10 @@ public class Blogg {
 	}
 	
 	public String toString() {
-		String str = "" + nesteLedige + "\n";		
+		String str = nesteLedige + "\n";		
 		for (int i = 0; i < nesteLedige; i++) {
 			Innlegg innlegg = innleggtabell[i];
+			
 			if (innlegg instanceof Bilde) {
 				Bilde bilde = (Bilde) innlegg;
 				str += bilde.toString();
@@ -116,11 +121,23 @@ public class Blogg {
 	}
 	
 	public int[] search(String keyword) {
-		int nestePos = 0;
+		int forekomster = 0;
 		int [] soekeTab = new int [nesteLedige];
 		
 		for(int i = 0; i < nesteLedige; i++) {
+			String tekst = "";
+			if (innleggtabell[i] instanceof Bilde) {
+				Bilde bilde = (Bilde) innleggtabell[i];
+				tekst = bilde.getTekst();
+			} else {
+				Tekst txt = (Tekst) innleggtabell[i];
+				tekst = txt.getTekst();
+			}
 			
+			if(tekst.indexOf(keyword) >= 0) {
+				soekeTab[forekomster] = innleggtabell[i].getId();
+				forekomster++;
+			}
 		}
 		
 		return soekeTab;

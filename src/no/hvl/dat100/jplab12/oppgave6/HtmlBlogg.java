@@ -1,6 +1,8 @@
 package no.hvl.dat100.jplab12.oppgave6;
 
 import no.hvl.dat100.jplab12.oppgave1.Innlegg;
+import no.hvl.dat100.jplab12.oppgave2.Bilde;
+import no.hvl.dat100.jplab12.oppgave2.Tekst;
 import no.hvl.dat100.jplab12.oppgave3.Blogg;
 import no.hvl.dat100.jplab12.common.TODO;
 
@@ -18,7 +20,23 @@ public class HtmlBlogg extends Blogg {
 	
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		String bloggTekst = HTMLPREFIX;
+		
+		for (int i = 0; i < HtmlBlogg.super.getAntall(); i++) {
+			Innlegg innlegg = HtmlBlogg.super.getSamling()[i];
+			
+			if (innlegg instanceof Bilde) {
+				Bilde bilde = (Bilde) innlegg;
+				bloggTekst += bilde.toHTML();
+			} else {
+				Tekst tekst = (Tekst) innlegg;
+				bloggTekst += tekst.toHTML();
+			}
+		}
+		
+		bloggTekst += HTMLPOSTFIX;
+		System.out.println(bloggTekst);
+		return bloggTekst;
 		
 	}
 }

@@ -22,7 +22,7 @@ public class SkrivBlogg {
 			writer.println(samling.toString());
 
 		} catch (FileNotFoundException e) {
-			showInputDialog(null, "Feilmelding: Finner ikke filen!");
+			showMessageDialog(null, "Feilmelding: Finner ikke filen!");
 		} finally {
 			if (writer != null) {
 				writer.close();
