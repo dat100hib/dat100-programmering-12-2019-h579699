@@ -18,7 +18,7 @@ public class SkrivBlogg {
 		PrintWriter writer = null;
 
 		try {
-			writer = new PrintWriter(MAPPE + filnavn);
+			writer = new PrintWriter(MAPPE + filnavn); //Åpner skriver
 			writer.println(samling.toString());
 
 		} catch (FileNotFoundException e) {
